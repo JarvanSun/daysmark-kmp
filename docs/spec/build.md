@@ -7,7 +7,7 @@
 | Kotlin | 2.4.21 | Compiler plugins below are tied to it |
 | Android Gradle Plugin | 9.5.1 | Built-in Kotlin; KMP libraries use `com.android.kotlin.multiplatform.library` |
 | XcodeGen | 2.46.0, pinned in `iosApp/.xcodegen-version` | `scripts/verify.sh` refuses another version; CI installs exactly this one |
-| Xcode | 27.1 | CI selects it (`setup-xcode`); CI runs `macos-26` runners |
+| Xcode | 27.1 | CI selects it (`setup-xcode`); CI runs on the `xcode-27` runner image (preview) |
 | Gradle | 9.9.1 (wrapper) | Must **run on JDK 21 or later**, because Metro's Gradle plugin requires it |
 | JDK for Gradle | 25, pinned by `gradle/gradle-daemon-jvm.properties` (Gradle's daemon toolchain) | Android Studio's bundled JBR is 25, so locally nothing is downloaded; CI sets up 25 too. Bytecode still targets Java 17. |
 | Metro | 1.6.0 | Compiler plugin. Its compatibility table lists Kotlin up to 2.4.20; 2.4.21 was verified by building and testing here. Check the [table](https://zacsweers.github.io/metro/latest/compatibility/) before changing Kotlin. |

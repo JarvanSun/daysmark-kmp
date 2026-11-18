@@ -1,0 +1,21 @@
+{
+  "comment": "Colours from the Swift Daysmark app. Run scripts/generate-design-tokens.py after editing; never edit the generated files.",
+  "colors": {
+    "canvas":                 { "light": "#F7F3EC", "dark": "#141311" },
+    "canvasSecondary":        { "light": "#EFE9DF", "dark": "#1D1B17" },
+    "textPrimary":            { "light": "#2A2724", "dark": "#ECE7DE" },
+    "textSecondary":          { "light": "#6B655C", "dark": "#A8A196" },
+    "textTertiary":           { "light": "#9C958A", "dark": "#6F6A62" },
+    "textOnTint":             { "light": "#FFFFFF", "dark": "#141311" },
+    "separator":              { "light": "#E2DCD1", "dark": "#2A2823" },
+    "tint":                   { "light": "#2F5D3A", "dark": "#8FBF97" },
+    "tintSoft":               { "light": "#DCE8DD", "dark": "#203527" },
+    "upcoming":               { "light": "#2F5D3A", "dark": "#8FBF97" },
+    "past":                   { "light": "#9A5A3C", "dark": "#D19A78" },
+    "destructive":            { "light": "#B3423A", "dark": "#E6857D" },
+    "landscapePastGround":    { "light": "#F4EBDC", "dark": "#756651" },
+    "landscapeFutureGround":  { "light": "#EBEEDA", "dark": "#69785A" },
+    "landscapePastFoliage":   { "light": "#E5D4BA", "dark": "#B6A087" },
+    "landscapeFutureFoliage": { "light": "#DAE3C8", "dark": "#A4B38D" }
+  }
+}

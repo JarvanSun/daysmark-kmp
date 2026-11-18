@@ -1,0 +1,27 @@
+# Gradle
+.gradle/
+build/
+.kotlin/
+local.properties
+
+# IDE (Android Studio / IntelliJ keep everything here per machine; nothing is shared)
+.idea/
+*.iml
+*.hprof
+captures/
+.DS_Store
+
+
+# Xcode (DerivedData lives outside the repo, see docs/spec/build.md)
+iosApp/*.xcodeproj/
+xcuserdata/
+*.xcuserstate
+
+# AI assistant configuration stays local
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+.claude/
+.codex/
+.cursor/
+.github/copilot-instructions.md

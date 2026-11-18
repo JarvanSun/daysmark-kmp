@@ -1,0 +1,66 @@
+{
+  "version": 2,
+  "entries": [
+    {
+      "startsAtMillis": 1795017600000,
+      "focus": {
+        "id": "trip",
+        "title": "Kyoto",
+        "icon": "airplane",
+        "count": { "kind": "future", "value": 3, "future": true },
+        "phase": "beforeStart"
+      }
+    },
+    {
+      "startsAtMillis": 1795104000000,
+      "focus": {
+        "id": "trip",
+        "title": "Kyoto",
+        "icon": "airplane",
+        "count": { "kind": "today", "value": 0, "future": true },
+        "phase": "ongoing"
+      }
+    },
+    {
+      "startsAtMillis": 1795190400000,
+      "focus": {
+        "id": "dinner",
+        "title": "Dinner",
+        "icon": "star",
+        "count": { "kind": "hours", "value": 2, "future": false },
+        "phase": "point"
+      }
+    },
+    {
+      "startsAtMillis": 1795276800000,
+      "focus": {
+        "id": "call",
+        "title": "Call",
+        "icon": "heart",
+        "count": { "kind": "minutes", "value": 5, "future": true },
+        "phase": "point"
+      }
+    },
+    {
+      "startsAtMillis": 1795363200000,
+      "focus": {
+        "id": "call",
+        "title": "Call",
+        "icon": "heart",
+        "count": { "kind": "now", "value": 0, "future": true },
+        "phase": "point"
+      }
+    },
+    {
+      "startsAtMillis": 1795449600000,
+      "focus": {
+        "id": "trip",
+        "title": "Kyoto",
+        "icon": "airplane",
+        "count": { "kind": "past", "value": 12, "future": false },
+        "phase": "ended"
+      }
+    },
+    { "startsAtMillis": 1795536000000, "focus": null }
+  ]
+}

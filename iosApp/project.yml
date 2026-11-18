@@ -1,0 +1,138 @@
+# Generate the Xcode project with `xcodegen` (the .xcodeproj is not committed; see docs/spec/build.md).
+name: DaysmarkKMP
+options:
+  bundleIdPrefix: com.example.daysmark
+  deploymentTarget:
+    iOS: "26.0"
+  createIntermediateGroups: true
+  developmentLanguage: en
+  knownRegions: [en, zh-Hans]
+
+packages:
+  KMPObservableViewModel:
+    url: https://github.com/rickclephas/KMP-ObservableViewModel.git
+    exactVersion: 1.1.0
+
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    MARKETING_VERSION: 0.1.0
+    CURRENT_PROJECT_VERSION: 1
+
+targets:
+  Daysmark:
+    type: application
+    platform: iOS
+    sources:
+      - path: Daysmark
+        excludes: [Info.plist, Daysmark.entitlements]
+      # Design tokens, phrases and icons the widget compiles too (it has no Kotlin).
+      - Common
+      - Resources
+      # The artwork Android also uses (WebP); loaded with UIImage(named: "<name>.webp").
+      - path: ../resources/artwork/drawable-nodpi
+        buildPhase: resources
+    settings:
+      base:
+        # Distinct from the Swift Daysmark app so both can be installed side by side.
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.daysmark.kmp
+        PRODUCT_NAME: Daysmark
+        TARGETED_DEVICE_FAMILY: "1,2"
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_FILE: Daysmark/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Daysmark/Daysmark.entitlements
+        INFOPLIST_KEY_CFBundleDisplayName: Daysmark
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: UIInterfaceOrientationPortrait
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight
+        SWIFT_DEFAULT_ACTOR_ISOLATION: MainActor
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: tint
+        ASSETCATALOG_COMPILER_APPICON_NAME: PaperTimeLoop
+        SWIFT_APPROACHABLE_CONCURRENCY: YES
+        # The Kotlin framework is built by Gradle in the pre-build script below.
+        FRAMEWORK_SEARCH_PATHS: $(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)
+        OTHER_LDFLAGS: $(inherited) -framework Shared
+        # The script calls Gradle, which reads and writes outside the sandbox.
+        ENABLE_USER_SCRIPT_SANDBOXING: NO
+    preBuildScripts:
+      - name: Build Kotlin framework (Gradle)
+        script: '"$SRCROOT/scripts/build-shared-framework.sh"'
+        basedOnDependencyAnalysis: false
+    dependencies:
+      - target: DaysmarkWidget
+      - package: KMPObservableViewModel
+        product: KMPObservableViewModelSwiftUI
+
+  DaysmarkWidget:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: DaysmarkWidget
+        excludes: [Info.plist, DaysmarkWidget.entitlements]
+      - Common
+      - path: Resources
+        excludes: [PaperTimeLoop.icon]
+      - path: ../resources/artwork/drawable-nodpi
+        buildPhase: resources
+        includes: [event_appearance_*.webp]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.daysmark.kmp.widget
+        PRODUCT_NAME: DaysmarkWidget
+        TARGETED_DEVICE_FAMILY: "1,2"
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_FILE: DaysmarkWidget/Info.plist
+        CODE_SIGN_ENTITLEMENTS: DaysmarkWidget/DaysmarkWidget.entitlements
+        INFOPLIST_KEY_CFBundleDisplayName: Daysmark
+        SKIP_INSTALL: YES
+        SWIFT_APPROACHABLE_CONCURRENCY: YES
+
+  # Decodes the widget timeline fixture that Kotlin's tests prove it writes (resources/fixtures).
+  # No host: it compiles the extension's decoding code and the shared Swift on their own.
+  DaysmarkWidgetTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - DaysmarkWidgetTests
+      - DaysmarkWidget/WidgetSnapshot.swift
+      - Common
+      - path: ../resources/fixtures/widget-timeline-v2.json
+        buildPhase: resources
+      - path: ../resources/fixtures/widget-timeline-invalid
+        type: folder
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.daysmark.kmp.widget-tests
+        GENERATE_INFOPLIST_FILE: YES
+
+  # Runs inside the app: the Swift mappings of every shared case.
+  DaysmarkTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - DaysmarkTests
+    dependencies:
+      - target: Daysmark
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.daysmark.kmp.tests
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_HOST: $(BUILT_PRODUCTS_DIR)/Daysmark.app/Daysmark
+        BUNDLE_LOADER: $(TEST_HOST)
+        SWIFT_DEFAULT_ACTOR_ISOLATION: MainActor
+        FRAMEWORK_SEARCH_PATHS: $(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)
+
+schemes:
+  Daysmark:
+    build:
+      targets:
+        Daysmark: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - DaysmarkTests
+        - DaysmarkWidgetTests

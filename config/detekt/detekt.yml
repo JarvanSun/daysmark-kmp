@@ -1,0 +1,26 @@
+# Builds on detekt's default rule set (buildUponDefaultConfig). Only deliberate deviations live here,
+# each with its reason.
+complexity:
+  LongParameterList:
+    # Compose functions take state plus one lambda per user action.
+    ignoreAnnotated: ['Composable']
+naming:
+  FunctionNaming:
+    # Composables are PascalCase.
+    ignoreAnnotated: ['Composable']
+  MatchingDeclarationName:
+    # Platform source sets name files Foo.android.kt / Foo.ios.kt.
+    active: false
+style:
+  MagicNumber:
+    # Tests and dates are full of literal numbers that are the point of the code.
+    excludes: ['**/*Test/**', '**/test/**']
+    # Enum entries are named tables of values (artwork geometry, storage keys).
+    ignoreEnums: true
+  UnusedPrivateFunction:
+    # Metro calls private @Provides functions.
+    ignoreAnnotated: ['Provides']
+potential-bugs:
+  LateinitUsage:
+    # No `lateinit`: state is initialised or modelled as nullable.
+    active: true

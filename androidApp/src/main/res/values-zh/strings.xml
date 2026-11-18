@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">日子</string>
+    <string name="phrase_today">今天</string>
+    <string name="phrase_tomorrow">明天</string>
+    <string name="phrase_now">现在</string>
+    <string name="phrase_range_starts">%1$s开始</string>
+    <string name="phrase_range_ends">%1$s结束</string>
+    <string name="phrase_range_ended">已结束，%1$s</string>
+    <string name="phrase_yesterday">昨天</string>
+    <string name="home_filter_all">全部</string>
+    <string name="category_important">重要日</string>
+    <string name="category_birthday">生日</string>
+    <string name="category_anniversary">纪念日</string>
+    <string name="home_empty_title">记下第一个重要日</string>
+    <string name="home_empty_description">期待的日子，或值得记住的那一天。</string>
+    <string name="home_empty_create">添加重要日</string>
+    <string name="home_filter_empty_title">没有符合条件的事项</string>
+    <string name="home_filter_empty_description">试试其他类别。</string>
+    <string name="home_filter_reset">重置筛选</string>
+    <string name="home_toolbar_add">添加事项</string>
+    <string name="home_row_pin">置顶</string>
+    <string name="home_row_unpin">取消置顶</string>
+    <string name="home_row_delete">删除</string>
+    <string name="home_delete_title">删除“%1$s”？</string>
+    <string name="home_delete_message">删除后无法恢复。</string>
+    <string name="home_delete_confirm">删除事项</string>
+    <plurals name="phrase_future_days">
+        <item quantity="other">还有 %s 天</item>
+    </plurals>
+    <plurals name="phrase_past_days">
+        <item quantity="other">已经 %s 天</item>
+    </plurals>
+    <plurals name="landscape_past">
+        <item quantity="other">过去 %d 个事项</item>
+    </plurals>
+    <plurals name="landscape_future">
+        <item quantity="other">未来 %d 个事项</item>
+    </plurals>
+    <string name="editor_title_new">新建事项</string>
+    <string name="editor_title_edit">编辑事项</string>
+    <string name="editor_cancel">取消</string>
+    <string name="editor_save">保存</string>
+    <string name="editor_title_placeholder">事项名称</string>
+    <string name="editor_untitled">事项名称</string>
+    <string name="editor_preview_upcoming">%1$s 还有</string>
+    <string name="editor_preview_past">%1$s 已经</string>
+    <string name="editor_preview_today">%1$s 就是</string>
+    <string name="editor_start">开始日期</string>
+    <string name="editor_add_time">添加时间</string>
+    <string name="editor_time">时间</string>
+    <string name="editor_add_end">添加结束日期</string>
+    <string name="editor_end">结束日期</string>
+    <string name="editor_category">类别</string>
+    <string name="editor_rules">提醒与规则</string>
+    <string name="editor_add_reminder">添加提醒</string>
+    <string name="editor_repeat">重复</string>
+    <string name="repeat_never">从不</string>
+    <string name="repeat_monthly">每月</string>
+    <string name="repeat_yearly">每年</string>
+    <string name="editor_appearance">外观</string>
+    <string name="editor_delete">删除事项</string>
+    <string name="editor_delete_title">删除这个事项？</string>
+    <string name="editor_discard_title">放弃所做的更改？</string>
+    <string name="editor_discard">放弃</string>
+    <string name="editor_keep_editing">继续编辑</string>
+    <string name="reminder_on_the_day">当天</string>
+    <plurals name="editor_preview_unit">
+        <item quantity="other">天</item>
+    </plurals>
+    <plurals name="reminder_days_before">
+        <item quantity="other">提前 %d 天</item>
+    </plurals>
+    <string name="detail_share">分享</string>
+    <string name="detail_edit">编辑</string>
+    <string name="detail_back">返回</string>
+    <string name="detail_switch_hint">点数字，换个单位看</string>
+    <string name="detail_caption_today">就是这一天</string>
+    <plurals name="detail_remainder">
+        <item quantity="other">又 %d 天</item>
+    </plurals>
+    <plurals name="detail_caption_past_days">
+        <item quantity="other">已经 · 天</item>
+    </plurals>
+    <plurals name="detail_caption_past_weeks">
+        <item quantity="other">已经 · 周</item>
+    </plurals>
+    <plurals name="detail_caption_past_hours">
+        <item quantity="other">已经 · 小时</item>
+    </plurals>
+    <plurals name="detail_caption_past_minutes">
+        <item quantity="other">已经 · 分钟</item>
+    </plurals>
+    <plurals name="detail_caption_upcoming_days">
+        <item quantity="other">还有 · 天</item>
+    </plurals>
+    <plurals name="detail_caption_upcoming_weeks">
+        <item quantity="other">还有 · 周</item>
+    </plurals>
+    <plurals name="detail_caption_upcoming_hours">
+        <item quantity="other">还有 · 小时</item>
+    </plurals>
+    <plurals name="detail_caption_upcoming_minutes">
+        <item quantity="other">还有 · 分钟</item>
+    </plurals>
+    <string name="share_title">分享事项</string>
+    <string name="share_done">完成</string>
+    <string name="share_include_category">包含类别</string>
+    <string name="share_card">分享卡片</string>
+    <string name="share_reference">截至%1$s</string>
+    <string name="share_range">%1$s至%2$s</string>
+    <string name="reminders_channel">提醒</string>
+    <string name="widget_focus_name">焦点</string>
+    <string name="widget_focus_description">显示首页焦点的事项。</string>
+    <string name="widget_empty_title">还没有事项</string>
+    <string name="widget_empty_action">轻点添加</string>
+    <string name="widget_preview_title">京都之旅</string>
+    <string name="onboarding_welcome_title">让重要日期始终在身边</string>
+    <string name="onboarding_welcome_message">看见正在靠近的期待，记住重要的人与时刻。</string>
+    <string name="onboarding_birthday_title">你的出生日期是？</string>
+    <string name="onboarding_birthday_message">选择你的出生日期，或跳过这一步。</string>
+    <string name="onboarding_birthday_choose">选择出生日期</string>
+    <string name="onboarding_starters_title">先从几个日期开始</string>
+    <string name="onboarding_starters_message">它们是真实的事项，之后可以编辑、分享或删除。</string>
+    <string name="onboarding_starter_birthday">我的生日</string>
+    <string name="onboarding_starter_birth_date">我的出生日</string>
+    <string name="onboarding_starter_new_year">新年</string>
+    <string name="onboarding_starter_next_month">下个月</string>
+    <string name="onboarding_starter_birthday_reminders">提前一周、提前一天和当天提醒</string>
+    <string name="onboarding_next">继续</string>
+    <string name="onboarding_create_selected">创建所选日期</string>
+    <string name="onboarding_start_empty">不添加，直接开始</string>
+    <string name="onboarding_back">返回</string>
+    <string name="onboarding_skip">跳过</string>
+    <string name="onboarding_failure_title">无法保存</string>
+    <string name="onboarding_failure_message">你的日期没有保存，请重试。</string>
+    <string name="onboarding_failure_retry">重试</string>
+    <string name="home_toolbar_settings">设置</string>
+    <string name="settings_title">设置</string>
+    <string name="settings_notifications_title">通知</string>
+    <string name="settings_notifications_permission">权限</string>
+    <string name="settings_allowed">已允许</string>
+    <string name="settings_notifications_off">已关闭</string>
+    <string name="settings_turn_on">开启</string>
+    <string name="settings_exact_alarms">准时提醒</string>
+    <string name="settings_exact_alarms_off">已关闭：提醒可能晚几分钟</string>
+    <string name="settings_allow">允许</string>
+    <string name="settings_widget_title">微件</string>
+    <string name="settings_widget_steps">按住主屏幕空白处，点按“微件”，然后找到 Daysmark。</string>
+    <string name="settings_about_title">关于</string>
+    <string name="settings_about_version">版本</string>
+    <string name="failure_load_title">无法读取你的日期</string>
+    <string name="failure_load_message">在这台设备上读取时出了问题。</string>
+    <string name="failure_load_retry">重试</string>
+    <string name="failure_save_title">无法保存</string>
+    <string name="failure_delete_title">无法删除</string>
+    <string name="failure_pin_title">无法更改置顶</string>
+    <string name="failure_write_message">什么都没有改变，请再试一次。</string>
+    <string name="failure_share_title">无法分享卡片</string>
+</resources>
